@@ -1,0 +1,10 @@
+# configura.txt
+
+En el directorio de todo_list se encuentran los siguientes archivos:
+
+main.py
+testing.py
+
+EL archivo testing.py contiene una aplicación con Tkinter, la App ToDo List, usando customtkinter
+
+
