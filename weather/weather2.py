@@ -16,7 +16,7 @@ from PIL import ImageTk
 
 root = Tk()
 root.title("Weather App")
-root.geometry("950x500+300+200")
+root.geometry("980x500+300+200")
 root.resizable(False,False)
 
 
@@ -44,7 +44,7 @@ def getWeather():
                                     in ('ping -n 1 -4 "%computername%"') do @echo %a""")
         comando = "Elegiste IP"
         # Print data
-        t.config(text=(ip,"-> "))
+        t.config(text=(ip))
         c.config(text=(comando,ip,"Ok"))
     else:
         ip = subprocess.getoutput("ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print $2}'")
@@ -84,7 +84,7 @@ logo.place(x=200,y=150)
 
 # Bottom box
 # Load the image
-frame_image=Image.open('box.png')
+frame_image=Image.open('./uno/box.png')
 
 # Resize the image in the given (width, height)
 frame_image=frame_image.resize((800, 100))
