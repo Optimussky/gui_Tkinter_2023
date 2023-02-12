@@ -1,3 +1,4 @@
+# https://github.com/TomSchimansky/CustomTkinter/wiki/CTkEntry
 import tkinter as tk
 import customtkinter as ctk
 
@@ -26,7 +27,7 @@ scrollable_frame.pack(fill="x")
 # Add Entry
 entry = ctk.CTkEntry(scrollable_frame, placeholder_text="Add ToDo")
 entry.pack()
-entry.focus_set()
+entry.focus()
 
 # Add Button
 add_button = ctk.CTkButton(root, text="Add" , width=500, command=add_todo)
