@@ -1,11 +1,23 @@
 # screen_recorder.py
 # URL tuto: https://www.youtube.com/watch?v=lQP0pZ7rCKk&t=144s
 # icons https://www.pngwing.com/es/search?q=bot%C3%B3n+Detener
+import os, sys
 from tkinter import *
 import tkinter as tk
 import pyscreenrec
 from PIL import Image
 from PIL import ImageTk
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for Pyinstaller """
+    try:
+        # PyInstaller creates a tem folder and sotres paht in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path,relative_path)
+
 
 root = tk.Tk()
 root.geometry("400x600")
@@ -14,6 +26,9 @@ root.config(bg="#fff")
 root.resizable(False,False)
 
 
+def minimize_app():
+    print("Minimizar ventana")
+     
 # Create functions
 def start_rec():
     try:
@@ -51,14 +66,14 @@ rec = pyscreenrec.ScreenRecorder()
 
 # data images =  W:234, Height=284 Resolution=72
 #icon
-image_icon = PhotoImage(file="camera.png")
+image_icon = PhotoImage(file=resource_path("Images/camera.png"))
 root.iconphoto(False,image_icon)
 
 # background images
-image1 = PhotoImage(file="yellow.png")
+image1 = PhotoImage(file=resource_path("Images/yellow.png"))
 Label(root,image=image1,bg="#fff").place(x=-350,y=10)
 
-image2 = PhotoImage(file="blue.png")
+image2 = PhotoImage(file=resource_path("Images/blue.png"))
 Label(root,image=image2, bg="#fff").place(x=223,y=200)
 
 # Heading
@@ -68,7 +83,7 @@ head.pack(pady=20)
 
 
 #Load image
-image3 = Image.open('camera.png')
+image3 = Image.open(resource_path("Images/camera.png"))
 image3=image3.resize((300,200))
 image3 = ImageTk.PhotoImage(image3)
 Label(root, image=image3,bd=0).pack(pady=150)
@@ -96,19 +111,19 @@ start.place(x=240,y=300)
 
 
 
-image4 = Image.open('play.png')
+image4 = Image.open(resource_path("Images/play.png"))
 image4=image4.resize((50,50))
 image4 = ImageTk.PhotoImage(image4)
 resume=Button(root,image=image4,bd=0,bg='#fff',activebackground='green',cursor="hand2 #FF5733",command=resume_rec)
 resume.place(x=80,y=450)
 
-image5 = Image.open('pause.png')
+image5 = Image.open(resource_path("Images/pause.png"))
 image5=image5.resize((50,50))
 image5 = ImageTk.PhotoImage(image5)
 pause=Button(root,image=image5,bd=0,bg='#fff',activebackground='blue',cursor="hand2 #FF5733",command=pause_rec)
 pause.place(x=180,y=450)
 
-image6 = Image.open('stop.png')
+image6 = Image.open(resource_path("Images/stop.png"))
 image6=image6.resize((50,50))
 image6 = ImageTk.PhotoImage(image6)
 stop=Button(root,image=image6,bd=0,bg='#fff',activebackground='red',cursor="hand2 #FF5733",command=stop_rec)
