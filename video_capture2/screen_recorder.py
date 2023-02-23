@@ -34,7 +34,7 @@ def start_rec():
     try:
 
         file=Filename.get()
-        rec.start_recording(str(file+".mp4"),5)
+        rec.start_recording(str(file+".mp4"),10)
     except:
         print("Error en start record")
 
