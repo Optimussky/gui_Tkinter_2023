@@ -2,7 +2,7 @@
 import os
 from os import system
 import tkinter as tk
-from tkinter import Button,Label,Entry,messagebox
+from tkinter import Button,Label,Entry,messagebox, PhotoImage
 import qrcode
 
 
@@ -38,9 +38,9 @@ def generate_png():
 Upper_right = tk.Label(root,text ='DDS SSC-CDMX', bg='#a88b5b')
  
 # using place method we can set the position of label
-Upper_right.place(relx = 1.0,
+Upper_right.place(relx = 0.0,
                   rely = 0.0,
-                  anchor ='ne')
+                  anchor ='nw')
 
 
 
@@ -61,5 +61,13 @@ designed=Label(footer_frame, text="Designed by ®Alberto Romero™ SSC-DDS Febru
 
 footer_frame.pack(side="bottom", fill="x")
 designed.pack(side="right")
+
+icono = tk.PhotoImage(file="ico.png")
+# Establecerlo como ícono de la ventana.
+back_ground_pic=PhotoImage(file='ssc.jpg')
+Label(root,image=back_ground_pic,bg='grey').pack(side='right')
+root.wm_attributes("-transparentcolor", 'grey')
+
+root.iconphoto(True, icono)
 
 root.mainloop()
