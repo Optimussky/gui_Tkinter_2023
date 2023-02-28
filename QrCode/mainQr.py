@@ -59,17 +59,17 @@ Upper_right.place(relx = 0.0,
 
 
 
-Label(root, text="Título",fg="white",bg="#a88b5b",font=15).place(x=50,y=170)
+Label(root, text="Título",width=34,fg="white",bg="#a88b5b",font=15).place(x=50,y=170)
 
-title=Entry(root,width=13,font="arial 15")
+title=Entry(root,width=28,font="arial 15")
 title.place(x=50,y=200)
 title.focus()
-texto=Label(root, text="Introduzca la cadena a convertir en QR",fg="white",bg='#a88b5b',font=15).place(x=50,y=250)
+texto=Label(root, text="Introduzca la cadena a convertir en QR",width=34,fg="white",bg='#a88b5b',font=15).place(x=50,y=250)
 my_qr=Entry(root,width=28, font="arial 15")
 my_qr.place(x=50,y=290)
 
 
-Button(root, text="Generar QR", width=20, height=2,font ='bold', bg="#d6ad28", fg="white", command=generate_png).place(x=50,y=340)
+Button(root, text="Generar QR", width=34, height=1,font ='bold', bg="#d6ad28", fg="white", command=generate_png).place(x=50,y=340)
 
 footer_frame = tk.Frame(root)
 designed=Label(footer_frame, text="Designed by ®Alberto Romero™ SSC-DDS February 2023", font=10 ,bg='#888b8d', fg='#d6ad28')
