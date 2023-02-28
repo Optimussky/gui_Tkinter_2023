@@ -1,9 +1,24 @@
 # mainQr.py
-import os
+import os, sys
 from os import system
 import tkinter as tk
 from tkinter import Button,Label,Entry,messagebox, PhotoImage
+from PIL import Image
+from PIL import ImageTk
 import qrcode
+
+
+# get source images to generate an executable app
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for Pyinstaller """
+    try:
+        # PyInstaller creates a tem folder and sotres paht in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path,relative_path)
+
 
 
 root=tk.Tk()
@@ -62,9 +77,13 @@ designed=Label(footer_frame, text="Designed by ®Alberto Romero™ SSC-DDS Febru
 footer_frame.pack(side="bottom", fill="x")
 designed.pack(side="right")
 
-icono = tk.PhotoImage(file="ico.png")
+icono = tk.PhotoImage(file=resource_path("Images/ico.png"))
 # Establecerlo como ícono de la ventana.
-back_ground_pic=PhotoImage(file='ssc.jpg')
+# Establecer el tamaño usando resize
+#back_ground_pic = Image.open(resource_path("Images/ssc-logo.png"))
+#back_ground_pic.resize((3,4))
+#back_ground_pic = ImageTk.PhotoImage(back_ground_pic)
+back_ground_pic=PhotoImage(file=resource_path("Images/ssc-logo.png"))
 Label(root,image=back_ground_pic,bg='grey').pack(side='right')
 root.wm_attributes("-transparentcolor", 'grey')
 
