@@ -1,4 +1,4 @@
-# studet_system.py
+# studet_system.py #https://www.youtube.com/watch?v=hUVJv-845FY
 import tkinter as tk
 from tkinter import PhotoImage
 from PIL import Image,ImageTk
