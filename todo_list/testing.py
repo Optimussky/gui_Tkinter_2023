@@ -10,10 +10,12 @@ root.title("CustomTkinter Test")
 
 # Add add_todo function
 def add_todo():
+    
     todo = entry.get()
-    label = ctk.CTkLabel(scrollable_frame, text=todo)
-    label.pack()
-    entry.delete(0,ctk.END)
+    if todo != '':
+        label = ctk.CTkLabel(scrollable_frame, text=todo)
+        label.pack()
+        entry.delete(0,ctk.END)
 
 
 # Add Label

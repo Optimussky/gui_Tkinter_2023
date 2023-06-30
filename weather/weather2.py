@@ -28,14 +28,24 @@ def getWeather():
     localtion = geolocator.geocode(city)
     obj = TimezoneFinder()
     result = obj.timezone_at(lng=localtion.latitude,lat=localtion.latitude)
-    #print(result)
+    #home=pytz.timezone(result)
+    local_time = datetime.now()
+    now = datetime.now()
+    year = now.year
+    mes = now.month
+    dia = now.day
+    hora = now.hour
+    minuto = now.minute
 
-    home=pytz.timezone(result)
-    local_time = datetime.now(home)
-    current_time = local_time.strftime("%I:%M %p")
+    if minuto < 10:
+        minutos = f"0{minuto}"
+    else:
+        minutos = minuto
+
+    current_time = f"{year}-{mes}-{dia} {hora}:{minutos}"
     # Clock and Name
     clock.config(text=current_time)
-    name.config(text="CURRENT WEATHER")
+    name.config(text="Fecha Actual")
 
     # Weather
     if platform.system() == 'Windows':
